@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 
@@ -8,6 +8,10 @@ import './App.css';
  */
 const App = () => {
   const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    setCounter(100);
+  }, []); //dependency array. When it is empty, the code inside the function will ONLY happenat the inital load of the component
   return (
     <div className="App">
       <button onClick={() => setCounter((prevCount) => prevCount - 1)}>-</button>
