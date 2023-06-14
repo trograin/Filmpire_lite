@@ -1,37 +1,18 @@
+import { useState } from 'react';
 import './App.css';
 
-/**
- * 
- * @param {*} props 
- * @returns Component
- */
-const Person = (props) => {
-  return (
-    <>
-      <h1>Name: {props.name}</h1>
-      <h2>Last name: {props.lastName}</h2>
-      <h2>Age: {props.age}</h2>
-    </>
-  );
-}
 
 /**
  * 
  * @returns App DIV
  */
 const App = () => {
+  const [counter, setCounter] = useState(0);
   return (
     <div className="App">
-      <Person 
-        name={'Boban'} 
-        lastName={'Alempijevic'} 
-        age={44}
-      />
-      <Person
-        name={'Petra'}
-        lastName={'Hultin'}
-        age={30}
-      />
+      <button onClick={() => setCounter((prevCount) => prevCount - 1)}>-</button>
+      <h1>{counter}</h1>
+      <button onClick={() => setCounter((addCount) => addCount + 1)}>+</button>
     </div>
   );
 }
