@@ -1,24 +1,26 @@
-import { useState, useEffect } from 'react';
-import './App.css';
+import React from "react";
+import { useEffect } from "react";
 
+// 2be764cd
 
-/**
- * 
- * @returns App DIV
- */
+const API_URL = 'http://www.omdbapi.com/?apikey=2be764cd';
+
 const App = () => {
-  const [counter, setCounter] = useState(0);
 
-  useEffect(() => {
-    setCounter(100);
-  }, []); //dependency array. When it is empty, the code inside the function will ONLY happenat the inital load of the component
-  return (
-    <div className="App">
-      <button onClick={() => setCounter((prevCount) => prevCount - 1)}>-</button>
-      <h1>{counter}</h1>
-      <button onClick={() => setCounter((addCount) => addCount + 1)}>+</button>
-    </div>
-  );
+    const searchMovies = async (title) => {
+        const response = await fetch(`${API_URL}&s=${title}`);
+        const data = await response.json();
+
+        console.log(data);
+    }
+
+    useEffect(() => {
+
+    }, []);
+
+    return (
+        <div>App</div>
+    );
 }
 
-export default App;
+export default App
